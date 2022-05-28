@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8' />
+    <title>OpenMapTiles OSM Bright style</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <script src="maplibre-gl.js"></script>
+    <link href="maplibre-gl.css" rel="stylesheet" />
+    <style>
+        body { margin:0; padding:0; }
+        #map { position:absolute; top:0; bottom:0; width:100%; }
+        #fly {position: fixed; right:5%; bottom:5%; width: 3%; height: auto;}
+
+        .button {
+          background-color: #0095ff;
+          border: 1px solid transparent;
+          border-radius: 30%;
+          box-shadow: rgba(255, 255, 255, .4) 0 1px 0 0 inset;
+          box-sizing: border-box;
+          color: #fff;
+          cursor: pointer;
+          display: inline-block;
+          font-family: -apple-system,system-ui,"Segoe UI","Liberation Sans",sans-serif;
+          font-size: 13px;
+          font-weight: 400;
+          line-height: 1.15385;
+          margin: 0;
+          outline: none;
+          padding: 8px .8em;
+          text-align: center;
+          text-decoration: none;
+          user-select: none;
+          -webkit-user-select: none;
+          touch-action: manipulation;
+          vertical-align: baseline;
+          white-space: nowrap;
+        }
+
+        .button:hover,
+        .button:focus {
+          background-color: #07c;
+        }
+
+        .button:focus {
+          box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
+        }
+
+        .button:active {
+          background-color: #0064bd;
+          box-shadow: none;
+        }
+    </style>
+</head>
+<body>
+    <div id='map'></div>
+    <input id = "fly" class = "button" type="image" src="placeholder.png" onclick="map.flyTo({center: [151.1375,-33.913],essential: true });" />
+    <script>
+        var map = new maplibregl.Map({
+            container: 'map',
+            style: '/style.json',
+            center: [151.1375,-33.913],
+            zoom: 14,
+            pitch: 60,
+        });
+    </script>
+</body>
+</html>
